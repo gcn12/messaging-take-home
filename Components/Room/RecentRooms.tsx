@@ -23,7 +23,7 @@ export default RecentRooms
 const Container = styled.div`
     border-right: 1px solid #d6d6d6;
     width: 25%;
-    height: 100%;
+    height: 95%;
 `
 
 const Title = styled.h1`
@@ -31,11 +31,12 @@ const Title = styled.h1`
     padding: 10px 0px 10px 20px;
     box-shadow: 0 7px 4px -4px rgba(0, 0, 0, .1);
     position: relative;
+    height: 5%;
 `
 
 const Cards = styled.div`
     overflow-y: scroll;
-    height: 680px;
+    height: 93%;
 `
 
 const cards = [

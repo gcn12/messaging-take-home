@@ -37,9 +37,11 @@ const Room = () => {
 export default Room
 
 const Container = styled.div`
+    height: 100%;
 `
 
 const ComponentsContainer = styled.div`
+    height: 100%;
     display: flex;
     border-top: 1px solid #d6d6d6;
 `

@@ -26,6 +26,7 @@ const Container = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    height: 7%;
 `
 
 const RightSide = styled.div`

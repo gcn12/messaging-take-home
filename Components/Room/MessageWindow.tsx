@@ -53,12 +53,14 @@ export default MessageWindow
 
 const Container = styled.div`
     width: 55%;
+    height: 93%;
 `
 
 const Title = styled.h1`
     font-size: 20px;
     padding: 10px 0px 10px 20px;
     box-shadow: 0 7px 4px -4px rgba(0, 0, 0, .1);
+    height: 5%;
 `
 
 const TextContainer = styled.div`

@@ -4,10 +4,10 @@ const GlobalStyles = createGlobalStyle`
 
     html {
         scroll-behavior: smooth;
+        /* height: 100%; */
     }
     
     html, body {
-        height: 100%;
         font-family: 'Karla', sans-serif;
     }
 
