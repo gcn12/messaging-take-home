@@ -1,25 +1,27 @@
 import styled from 'styled-components'
+import Router from 'next/router'
 
-const images = [
-    'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1463453091185-61582044d556?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1582610285985-a42d9193f2fd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fGdpcmx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-]
-const LargeCard = () => {
+const LargeCard = (props) => {
+
+    const pageRoute = () => {
+        Router.push(`/${props.room.url}`)
+        props.setPageName(props.room.name)
+    }
+
     return(
-        <Container href='/movie-club'>
-            <Header>
+        <Container color={props.room.color} onClick={pageRoute}>
+            {/* <CoverImage src={props.room.cover} /> */}
+            <Content>
+                <Header>
+                    <Title fontColor={props.room.fontColor}>{props.room.name}</Title>
+                    <Description fontColor={props.room.fontColor}>{props.room.description}</Description>
+                </Header>
                 <UserImages>
-                    {images.map((image, index)=> {
-                        return <UserImage key={index} src={image} />
+                    {props.room.images.map((image, index)=> {
+                        return <UserImage fontColor={props.room.fontColor} key={index} src={image} />
                     })}
                 </UserImages>
-                <Title>Movie club</Title>
-            </Header>
-            <Description>
-                Voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Description>
+            </Content>
         </Container>
     )
 }
@@ -27,33 +29,64 @@ const LargeCard = () => {
 export default LargeCard
 
 const Container = styled.a`
-    max-width: 400px;
-    min-height: 300px;
+    max-width: 350px;
+    min-height: 400px;
     display: block;
-    background-color: hsl(20, 30%, 90%);
+    /* background-color: #ffffff; */
+    background-color: ${props=>props.color};
     border-radius: 10px;
-    padding: 20px;
+    cursor: pointer;
+    margin: 0 10px 10px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    padding: 30px;
+    transition: box-shadow 200ms ease-in-out, transform 200ms;
+    &:hover {
+        box-shadow: 0 5px 7px rgba(0, 0, 0, .2);
+        transform: scale(1.01);
+    }
+`
+
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
 `
 
 const Header = styled.div`
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
+    flex-direction: column;
 `
 
 const Title = styled.h1`
-    font-size: 26px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: ${props=>props.fontColor};
 `
 
 const UserImages = styled.div``
 
 const UserImage = styled.img`
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 5px;
+    border: 1px solid ${props=>props.fontColor};
 `
 
 const Description = styled.p`
-    font-size: 18px;
+    color: ${props=>props.fontColor};
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.2;
+`
+
+const CoverImage = styled.img`
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
 `

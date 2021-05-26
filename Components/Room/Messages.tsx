@@ -38,6 +38,6 @@ export default Messages
 
 const MessagesContainer = styled.div`
     overflow-y: scroll;
-    height: 550px;
+    height: calc(100vh - 230px);
     border-bottom: 1px solid #d6d6d6;
 `

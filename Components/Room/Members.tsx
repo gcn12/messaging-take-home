@@ -23,8 +23,9 @@ export default Members
 
 const Container = styled.div`
     background-color: #EBF1F0;
-    height: 93%;
+    height: calc(100vh - 50px);
     width: 20%;
+    min-width: 250px;
 `
 
 const Title = styled.h1`

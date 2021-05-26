@@ -2,17 +2,21 @@ import styled from 'styled-components'
 import Router from 'next/router'
 
 const RecentRoomCard = (props: any) => {
+    const pageRoute = () => {
+        Router.push(`/${props.card.url}`)
+        props.setPageName(props.card.title)
+    }
     return(
-        <Container url={props.room.room} href={props.url} onClick={()=> Router.push(`/${props.url}`)} >
+        <Container url={props.room.room} href={props.card.url} onClick={pageRoute} >
             <Header>
-                <Title>{props.title}</Title>
+                <Title>{props.card.title}</Title>
                 {/* <Images>
                     {props.users.map((user: object, index: number)=> {
                         return <UserImage src={user} key={index} />
                     })}
                 </Images> */}
             </Header>
-            <Description>{props.description}</Description>
+            <Description>{props.card.description}</Description>
         </Container>
     )
 }
