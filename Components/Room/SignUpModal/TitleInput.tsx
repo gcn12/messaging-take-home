@@ -28,6 +28,7 @@ const UsernameInput = styled.input`
     min-height: 40px;
     width: 340px;
     font-size: 1.3rem;
+    border: 1px solid #c4c4c4;
 `
 
 const Title = styled.label`
