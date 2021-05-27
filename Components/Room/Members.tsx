@@ -22,7 +22,7 @@ const Members = () => {
 export default Members
 
 const Container = styled.div`
-    background-color: #EBF1F0;
+    background-color: #ebf5f7;
     height: calc(100vh - 50px);
     width: 20%;
     min-width: 250px;

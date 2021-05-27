@@ -42,7 +42,6 @@ const SearchContainer = styled.div`
 const Container = styled.div`
     height: 60px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-    /* margin: 15px 0;  */
     display: flex;
     align-items: center;
     justify-content: space-between;

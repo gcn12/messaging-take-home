@@ -27,6 +27,7 @@ const Container = styled.header`
     justify-content: space-between;
     padding: 10px 20px;
     height: 50px;
+    background-color: white;
 `
 
 const RightSide = styled.div`

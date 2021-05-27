@@ -20,6 +20,7 @@ const Container = styled.div`
     border-right: 1px solid #d6d6d6;
     width: 25%;
     height: calc(100vh - 40px);
+    background-color: white;
 `
 
 const Title = styled.h1`

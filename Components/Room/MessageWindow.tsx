@@ -62,6 +62,7 @@ export default MessageWindow
 const Container = styled.div`
     width: 55%;
     height: calc(100vh - 40px);
+    background-color: white;
 `
 
 const Title = styled.h1`

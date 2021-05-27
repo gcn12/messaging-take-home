@@ -4,7 +4,10 @@ import ScrollItem from './ScrollItem'
 const ScrollGallery = (props) => {
     return(
         <Container>
-            <Title>{props.title}</Title>
+            {/* <Header> */}
+                <Title>{props.title}</Title>
+                {/* <SeeMore>See more</SeeMore>
+            </Header> */}
             <Cards>
                 {props.content.map((item, index)=> {
                     return <ScrollItem setPageName={props.setPageName} item={item} key={index} />
@@ -17,8 +20,21 @@ const ScrollGallery = (props) => {
 export default ScrollGallery
 
 const Container = styled.div` 
-    padding: 0px 0 15px 30px;
+    padding: 0px 0px 15px 30px;
+    /* margin-right: -20px; */
 `
+
+// const Header = styled.div`
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// `
+
+// const SeeMore = styled.h2`
+//     font-size: 18px;
+//     font-weight: 400;
+//     margin-right: 40px;
+// `
 
 const Cards = styled.div`
     display: flex;
