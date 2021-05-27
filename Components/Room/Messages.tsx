@@ -14,6 +14,7 @@ const Messages = (props) => {
         .orderBy('timestamp', 'desc')
         .limit(25)
         .onSnapshot((items)=> {
+            setMessages([])
             if(items.size===0) {
                 setIsNoMessages(true)
             }else {

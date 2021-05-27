@@ -42,18 +42,21 @@ const ButtonsContainer = styled.div`
 const SmallNextButton = styled.button`
     font-size: 24px;
     padding: 10px 30px;
-    background-color: #b0b6b0;
+    background-color: #6a7b82;
+    color: white;
 `
 
 const BackButton = styled.button`
     font-size: 24px;
     padding: 10px 30px;
-    background-color: #b0b6b0;
+    background-color: #6a7b82;
     margin-right: 20px;
+    color: white;
 `
 
 const NextButton = styled.button`
     font-size: 24px;
     padding: 10px 30px;
-    background-color: #b0b6b0;
+    background-color: #6a7b82;
+    color: white;
 `
