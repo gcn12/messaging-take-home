@@ -10,7 +10,7 @@ const Member = (props) => {
     let shortenedBio: string
 
     if(props.bio.length > 55) {
-        shortenedBio = props.bio.slice(0, 55)
+        shortenedBio = props.bio.slice(0, 55).trim()
         if(shortenedBio[shortenedBio.length - 1] !== '.') {
             shortenedBio += '...'
         }

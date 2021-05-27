@@ -29,7 +29,8 @@ const CloseButton = styled.button`
 
 const SendMessage = styled.button`
     padding: 20px;
-    background-color: #a7a5a5;
+    background-color: #6a7b82;
+    color: white;
 `
 
 const NameBio = styled.div`

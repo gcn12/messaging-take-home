@@ -20,7 +20,7 @@ const Container = styled.div`
   overflow-y: scroll;
 `
 
-const sportsColors = '#e7f4fe'
+const sportsColors = '#f3fef2'
 
 
 const sports = [
@@ -79,7 +79,7 @@ const sports = [
   },
 ]
 
-const moviesColor = '#f3fef2'
+const moviesColor = '#e7f4fe'
 
 const movies = [
   {

@@ -30,6 +30,7 @@ const Image = styled.img`
     object-fit: cover;
     border-radius: 10px;
     margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 `
 
 const Title = styled.h1`

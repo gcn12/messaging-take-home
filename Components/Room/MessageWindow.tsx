@@ -94,7 +94,7 @@ const Textbox = styled.textarea`
 const SendButton = styled.button`
     width: 50px;
     height: 50px;
-    background-color: red;
+    background-color: #6a7b82;
     border-radius: 50%;
     position: absolute;
     right: 50px;
