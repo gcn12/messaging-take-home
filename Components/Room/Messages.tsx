@@ -9,24 +9,28 @@ const Messages = (props) => {
     const [messages, setMessages] = useState([])
     const [isNoMessages, setIsNoMessages] = useState(false)
 
+    const getMessages = () => {
+        return db.collection(String(props.room))
+        .orderBy('timestamp', 'desc')
+        .limit(25)
+        .onSnapshot((items)=> {
+            if(items.size===0) {
+                setIsNoMessages(true)
+            }else {
+                setIsNoMessages(false)
+            }
+            const messagesArr = []
+            items.forEach(item=>{
+                messagesArr.push(item.data())
+            })
+            setMessages(messagesArr.reverse())
+            document.getElementById('scroll-bottom').scrollIntoView(false)
+        })
+    }
+
     useEffect(()=> {
         if(props.room) {
-            const unsubscribe = db.collection(String(props.room))
-            .orderBy('timestamp', 'desc')
-            .limit(25)
-            .onSnapshot((items)=> {
-                if(items.size===0) {
-                    setIsNoMessages(true)
-                }else {
-                    setIsNoMessages(false)
-                }
-                const messagesArr = []
-                items.forEach(item=>{
-                    messagesArr.push(item.data())
-                })
-                setMessages(messagesArr.reverse())
-                document.getElementById('scroll-bottom').scrollIntoView(false)
-            })
+            const unsubscribe = getMessages()
             return ()=> unsubscribe()
         }
     }, [props])
@@ -71,7 +75,7 @@ const Day = styled.h1`
 `
 
 const NoMessages = styled.h2`
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
     margin-top: 20px;

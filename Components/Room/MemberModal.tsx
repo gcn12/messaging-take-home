@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const MemberModal = (props) => {
     return(
-        <Overlay  onDismiss={()=>props.setIsDialogOpen(false)} isOpen={props.isDialogOpen}>
+        <Overlay onDismiss={()=>props.setIsDialogOpen(false)} isOpen={props.isDialogOpen}>
             <Content aria-label='Member dialog'>
                 <CloseButton onClick={()=>props.setIsDialogOpen(false)}>
                     <XIcon alt='close modal icon' src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xMiAxMS4yOTNsMTAuMjkzLTEwLjI5My43MDcuNzA3LTEwLjI5MyAxMC4yOTMgMTAuMjkzIDEwLjI5My0uNzA3LjcwNy0xMC4yOTMtMTAuMjkzLTEwLjI5MyAxMC4yOTMtLjcwNy0uNzA3IDEwLjI5My0xMC4yOTMtMTAuMjkzLTEwLjI5My43MDctLjcwNyAxMC4yOTMgMTAuMjkzeiIvPjwvc3ZnPg==" />

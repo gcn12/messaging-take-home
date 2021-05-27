@@ -42,8 +42,6 @@ const NameButton = styled.button`
 const Container = styled.article`
     display: flex;
     padding: 15px 10px;
-    /* align-self: flex-start; */
-    /* opacity: ${props=>props.isActive ? '1' : '.5'}; */
 `
 
 const NameBio = styled.div`

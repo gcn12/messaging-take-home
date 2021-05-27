@@ -15,7 +15,6 @@ const ScrollItem = (props) => {
             <Image src={props.item.image} />
             <div>
                 <Title fontColor={props.item.fontColor}>{props.item.name}</Title>
-                {/* <Description fontColor={props.item.fontColor}>{props.item.description}</Description> */}
                 <Description>{members} members</Description>
             </div>
         </Container>
@@ -54,7 +53,6 @@ const Container = styled.a`
     align-items: center;
     min-height: 130px;
     min-width: 350px;
-    /* background-color: ${props=>props.color}; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
     background-image: linear-gradient(to bottom right, ${props=>props.color}, #f9f5f5);
     border: 1px solid #54585918;

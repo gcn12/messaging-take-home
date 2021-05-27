@@ -11,20 +11,18 @@ const LargeCard = (props) => {
     return(
         <Container color={props.room.color} onClick={pageRoute}>
             <CoverImage src={props.room.cover} />
-            <Content>
-                <Header>
-                    <div>
-                        <Title fontColor={props.room.fontColor}>{props.room.name}</Title>
-                        <Description fontColor={props.room.fontColor}>{props.room.description}</Description>
-                    </div>
-                    <UserImages>
-                        {props.room.images.map((image, index)=> {
-                            return <UserImage index={index} fontColor={props.room.fontColor} key={index} src={image} />
-                        })}
-                        <More length={props.room.images.length}>{props.room.more}</More>
-                    </UserImages>
-                </Header>
-            </Content>
+            <Header>
+                <div>
+                    <Title fontColor={props.room.fontColor}>{props.room.name}</Title>
+                    <Description fontColor={props.room.fontColor}>{props.room.description}</Description>
+                </div>
+                <UserImages>
+                    {props.room.images.map((image, index)=> {
+                        return <UserImage index={index} fontColor={props.room.fontColor} key={index} src={image} />
+                    })}
+                    <More length={props.room.images.length}>{props.room.more}</More>
+                </UserImages>
+            </Header>
         </Container>
     )
 }
@@ -32,31 +30,19 @@ const LargeCard = (props) => {
 export default LargeCard
 
 const Container = styled.a`
-    min-width: 280px;
-    min-height: 200px;
     background-image: linear-gradient(to bottom left, #ecfff1, #ffffff);
     border-radius: 10px;
     cursor: pointer;
-    /* margin: 0 10px 10px 10px; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     padding: 20px;
     transition: box-shadow 200ms ease-in-out, transform 200ms;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
-    /* border: 1px solid rgba(0, 0, 0, .1); */
     &:hover {
         box-shadow: 0 5px 7px rgba(0, 0, 0, .2);
         transform: scale(1.01);
     }
-`
-
-const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 `
 
 const Header = styled.div`
@@ -83,7 +69,9 @@ const UserImages = styled.div`
 
 const More = styled.h4`
     font-size: 14px;
-    background-color: #c5d7de;
+    background-color: #51707b;
+    border: 3px solid #75a1b1;
+    color: white;
     height: 40px;
     width: 40px;
     text-align: center;
@@ -101,11 +89,9 @@ const UserImage = styled.img`
     border-radius: 50%;
     object-fit: cover;
     margin-right: 5px;
-    /* border: 1px solid rgba(0, 0, 0, .1); */
-    border: 4px solid #c5d7de;
+    border: 3px solid #75a1b1;
     position: relative;
     left: ${props=>props.index * -20}px;
-    /* border: 1px solid ${props=>props.fontColor}; */
 `
 
 const Description = styled.p`
