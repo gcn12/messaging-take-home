@@ -31,5 +31,5 @@ const Cards = styled.div`
 const Title = styled.h1`
     font-size: 20px;
     margin-left: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 `

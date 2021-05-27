@@ -8,6 +8,7 @@ const MessageWindow = (props) => {
     const [message, setMessage] = useState('')
 
     const sendMessage = () => {
+        if(message.length===0) return
         const userData = {
             message,
             timestamp: Date.now(),
@@ -18,20 +19,27 @@ const MessageWindow = (props) => {
         } else {
             userData['image'] = props.userData.image
         }
+        sendMessageToDatabase(userData)
+    }
+
+    const sendMessageToDatabase = (userData) => {
         db.collection(String(props.room.room))
         .add(userData)
         .then(()=> {
             (document.getElementById('message-textarea') as HTMLInputElement).value = ''
+            setMessage('')
         })
     }
 
     const handleChange = (e) => {
         const message = e.target.value
-        if(e.key === 'Enter') {
+        setMessage(message)
+    }
+    
+    const handleEnter = (e) => {
+        if(e.key==='Enter') {
             e.preventDefault()
             sendMessage()
-        }else {
-            setMessage(message)
         }
     }
 
@@ -40,7 +48,7 @@ const MessageWindow = (props) => {
             <Title>{props.pageName}</Title>
             <Messages {...props.room} />
             <TextContainer>
-                <Textbox id='message-textarea' onKeyUp={handleChange} placeholder='Write a message...' />
+                <Textbox id='message-textarea' onKeyDown={handleEnter} onKeyUp={handleChange} placeholder='Write a message...' />
                 <SendButton onClick={sendMessage}>
                     <PlaneIcon src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgMGwtNiAyMi04LjEyOS03LjIzOSA3LjgwMi04LjIzNC0xMC40NTggNy4yMjctNy4yMTUtMS43NTQgMjQtMTJ6bS0xNSAxNi42Njh2Ny4zMzJsMy4yNTgtNC40MzEtMy4yNTgtMi45MDF6Ii8+PC9zdmc+" />
                 </SendButton>

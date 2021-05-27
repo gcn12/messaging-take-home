@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     
     html, body {
         font-family: 'Karla', sans-serif;
+        background-color: #e4eced;
     }
 
     * {

@@ -9,7 +9,7 @@ const ScrollItem = (props) => {
     }
 
     return(
-        <Container color={props.item.color} onClick={pageRoute}>
+        <Container colorOne={props.item.colorOne} colorTwo={props.item.colorTwo} color={props.item.color} onClick={pageRoute}>
             <Title fontColor={props.item.fontColor}>{props.item.name}</Title>
             <Description fontColor={props.item.fontColor}>{props.item.description}</Description>
         </Container>
@@ -26,6 +26,7 @@ const Title = styled.h1`
 
 const Description = styled.h1`
     color: ${props=>props.fontColor};
+    font-size: 18px;
     font-weight: 400;
 `
 
@@ -34,6 +35,7 @@ const Container = styled.a`
     min-height: 200px;
     min-width: 350px;
     background-color: ${props=>props.color};
+    /* background-image: linear-gradient(to bottom right, ${props=>props.colorOne}, ${props=>props.colorTwo}); */
     padding: 20px;
     margin-right: 10px;
     border-radius: 10px;
