@@ -35,6 +35,7 @@ const Container = styled.button<LoadingStyles>`
     min-height: 100px;
     background-color: ${props=>props.url === props.href ? 'white' : '#ebf5f7'};
     padding: 20px;
+    color: black;
     border-top: 1px solid #d6d6d6;
     transition: background-color 70ms ease-in-out;
     &:hover {
