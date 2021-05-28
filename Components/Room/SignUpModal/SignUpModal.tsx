@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 import Router from 'next/router'
 import firebase from 'firebase'
-import TitleInput from './TitleInput'
+import TitleInput from './UsernameInput'
 import Buttons from './Buttons'
 import PhotoContainer from './PhotoContainer'
 import { useState } from 'react'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
+import { useContext } from 'react'
+import AppContext from '../../../userContext'
 
 const SignUpModal = (props) => {
-
+    const { setUserData } = useContext(AppContext)
     const [step, setStep] = useState('select username')
     const [name, setName] = useState('')
     const [nameWarning, setNameWarning] = useState(false)
@@ -50,7 +52,7 @@ const SignUpModal = (props) => {
     }
 
     const closeModal = (image) => {
-        props.setUserData({
+        setUserData({
             image,
             name,
         })

@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-const TitleInput = (props) => {
+const UsernameInput = (props) => {
     return(
         <Container step={props.step}>
             <Title htmlFor='username-input'>Choose a username</Title>
-            <UsernameInput onChange={(e)=>props.setName(e.target.value)} autoComplete='off' id='username-input' />
+            <Input onChange={(e)=>props.setName(e.target.value)} autoComplete='off' id='username-input' />
         </Container>
     )
 }
 
-export default TitleInput
+export default UsernameInput
 
 const Container = styled.div`
     display: flex;
@@ -24,7 +24,7 @@ const Container = styled.div`
     visibility: ${props=>props.step==='select username' ? 'visible' : 'hidden'};
 `
 
-const UsernameInput = styled.input`
+const Input = styled.input`
     min-height: 40px;
     width: 340px;
     font-size: 1.3rem;

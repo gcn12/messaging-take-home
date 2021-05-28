@@ -1,30 +1,31 @@
 import Messages from './Messages'
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import AppContext from '../../userContext'
 import { db } from '../../firebase'
 
 const MessageWindow = (props) => {
-
+    
+    const { userData } = useContext(AppContext)
     const [message, setMessage] = useState('')
-
     const sendMessage = () => {
         if(message.length===0) return
-        const userData = {
+        const user = {
             message,
             timestamp: Date.now(),
-            name: props.userData.name,
+            name: userData.name,
         }
-        if(props.userData.image===null) {
-            userData['image'] = 'https://firebasestorage.googleapis.com/v0/b/messaging-e2002.appspot.com/o/iconmonstr-user-20-240.png?alt=media&token=7a7fc2d2-252d-4fdc-8816-076f7b8de78d'
+        if(userData.image===null) {
+            user['image'] = 'https://firebasestorage.googleapis.com/v0/b/messaging-e2002.appspot.com/o/iconmonstr-user-20-240.png?alt=media&token=7a7fc2d2-252d-4fdc-8816-076f7b8de78d'
         } else {
-            userData['image'] = props.userData.image
+            user['image'] = userData.image
         }
-        sendMessageToDatabase(userData)
+        sendMessageToDatabase(user)
     }
 
-    const sendMessageToDatabase = (userData) => {
+    const sendMessageToDatabase = (user) => {
         db.collection(String(props.room.room))
-        .add(userData)
+        .add(user)
         .then(()=> {
             (document.getElementById('message-textarea') as HTMLInputElement).value = ''
             setMessage('')

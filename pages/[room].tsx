@@ -21,11 +21,11 @@ const Room = (props) => {
 
     return(
         <Container>
-            <SignUpModal setUserData={props.setUserData} showSignUp={showSignUp} setShowSignUp={setShowSignUp} />
-            <Header userData={props.userData} />
+            <SignUpModal showSignUp={showSignUp} setShowSignUp={setShowSignUp} />
+            <Header />
             <ComponentsContainer>
                 <RecentRooms setPageName={props.setPageName} room={room} />
-                <MessageWindow pageName={props.pageName} userData={props.userData} room={room} />
+                <MessageWindow pageName={props.pageName}room={room} />
                 <Members />
             </ComponentsContainer>
         </Container>

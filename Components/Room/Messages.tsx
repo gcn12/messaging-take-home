@@ -40,7 +40,7 @@ const Messages = (props) => {
         <MessagesContainer>
             {messages.map((message, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         {index===0 &&
                             <Day><Line>{moment(messages[index].timestamp).format('MMM Do YYYY')}</Line></Day>
                         }

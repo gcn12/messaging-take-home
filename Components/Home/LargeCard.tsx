@@ -17,10 +17,10 @@ const LargeCard = (props) => {
                     <Description fontColor={props.room.fontColor}>{props.room.description}</Description>
                 </div>
                 <UserImages>
-                    {props.room.images.map((image, index)=> {
+                    {props.room.images.map((image: string, index: number)=> {
                         return <UserImage index={index} fontColor={props.room.fontColor} key={index} src={image} />
                     })}
-                    <More length={props.room.images.length}>{props.room.more}</More>
+                    <MoreUsers length={props.room.images.length}>{props.room.more}</MoreUsers>
                 </UserImages>
             </Header>
         </Container>
@@ -67,7 +67,7 @@ const UserImages = styled.div`
     align-items: center;
 `
 
-const More = styled.h4`
+const MoreUsers = styled.h4`
     font-size: 14px;
     background-color: #51707b;
     border: 3px solid #75a1b1;
