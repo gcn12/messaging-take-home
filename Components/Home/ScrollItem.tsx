@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import Router from 'next/router'
+import { AppContext } from '../Context/Context'
+import { useContext } from 'react'
 
 const ScrollItem = (props: any) => {
 
+    const context = useContext(AppContext)
+
     const pageRoute = () => {
         Router.push(`/${props.item.url}`)
-        props.setPageName(props.item.name)
+        context.setPageName(props.item.name)
     }
 
     const members = Math.round(Math.random()*100) + 5
@@ -44,11 +48,7 @@ const Title = styled.h1<TitleStyles>`
     font-family: 'Nunito', sans-serif;
 `
 
-interface DescriptionStyles {
-    fontColor: string;
-}
-const Description = styled.h1<DescriptionStyles>`
-    color: ${props=>props.fontColor};
+const Description = styled.h1`
     font-size: 18px;
     font-weight: 400;
     font-family: 'Nunito', sans-serif;

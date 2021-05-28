@@ -1,26 +1,31 @@
 import styled from 'styled-components'
 import Router from 'next/router'
+import { AppContext } from '../Context/Context'
+import { useContext } from 'react'
 
 const LargeCard = (props: any) => {
 
+    const { room } = props
+    const context = useContext(AppContext)
+
     const pageRoute = () => {
-        Router.push(`/${props.room.url}`)
-        props.setPageName(props.room.name)
+        Router.push(`/${room.url}`)
+        context.setPageName(room.name)
     }
 
     return(
-        <Container color={props.room.color} onClick={pageRoute}>
-            <CoverImage src={props.room.cover} />
+        <Container color={room.color} onClick={pageRoute}>
+            <CoverImage src={room.cover} />
             <Header>
                 <div>
-                    <Title fontColor={props.room.fontColor}>{props.room.name}</Title>
-                    <Description fontColor={props.room.fontColor}>{props.room.description}</Description>
+                    <Title fontColor={room.fontColor}>{room.name}</Title>
+                    <Description fontColor={room.fontColor}>{room.description}</Description>
                 </div>
                 <UserImages>
-                    {props.room.images.map((image: string, index: number)=> {
+                    {room.images.map((image: string, index: number)=> {
                         return <UserImage index={index} key={index} src={image} />
                     })}
-                    <MoreUsers length={props.room.images.length}>{props.room.more}</MoreUsers>
+                    <MoreUsers length={room.images.length}>{room.more}</MoreUsers>
                 </UserImages>
             </Header>
         </Container>

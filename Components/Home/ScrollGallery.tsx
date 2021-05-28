@@ -7,7 +7,7 @@ const ScrollGallery = (props: any) => {
             <Title>{props.title}</Title>
             <Cards>
                 {props.content.map((item, index: number)=> {
-                    return <ScrollItem setPageName={props.setPageName} item={item} key={index} />
+                    return <ScrollItem item={item} key={index} />
                 })}
             </Cards>
         </Container>

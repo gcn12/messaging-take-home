@@ -8,10 +8,10 @@ export default function Home(props) {
   return (
     <Container>
       <Header />
-      <FeaturedRooms setPageName={props.setPageName} />
-      <ScrollGallery setPageName={props.setPageName} content={sports} title='Sports' />
-      <ScrollGallery setPageName={props.setPageName} content={movies} title='Movies' />
-      <ScrollGallery setPageName={props.setPageName} content={schools} title='Universities' />
+      <FeaturedRooms />
+      <ScrollGallery content={sports} title='Sports' />
+      <ScrollGallery content={movies} title='Movies' />
+      <ScrollGallery content={schools} title='Universities' />
     </Container>
   )
 }

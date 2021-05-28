@@ -7,7 +7,7 @@ const RecentRooms = (props: any) => {
             <Title>Recent Rooms</Title>
             <Cards>
                 {cards.map((card, index)=> {
-                    return <RecentRoomCard setPageName={props.setPageName} room={props.room} card={card} key={index} />
+                    return <RecentRoomCard card={card} key={index} />
                 })}
             </Cards>
         </Container>

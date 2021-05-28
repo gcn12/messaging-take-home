@@ -7,10 +7,10 @@ import PhotoContainer from './PhotoContainer'
 import { useState } from 'react'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import { useContext } from 'react'
-import AppContext from '../../../userContext'
+import { AppContext } from '../../Context/Context'
 
 const SignUpModal = (props) => {
-    const { setUserData } = useContext(AppContext)
+    const context = useContext(AppContext)
     const [step, setStep] = useState('select username')
     const [name, setName] = useState('')
     const [nameWarning, setNameWarning] = useState(false)
@@ -23,7 +23,6 @@ const SignUpModal = (props) => {
 
     const handlePhotoUpload = () => {
         const files = (document.getElementById('photo-input') as HTMLInputElement).files
-        console.log(files)
         if(files.length===1) {
             uploadPhoto(files)
         }else {
@@ -53,7 +52,7 @@ const SignUpModal = (props) => {
     }
 
     const closeModal = (image) => {
-        setUserData({
+        context.setUserData({
             image,
             name,
         })

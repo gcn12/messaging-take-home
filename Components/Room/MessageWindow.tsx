@@ -1,30 +1,30 @@
 import Messages from './Messages'
 import styled from 'styled-components'
 import { useState, useContext } from 'react'
-import AppContext from '../../userContext'
 import { db } from '../../firebase'
+import { AppContext } from '../Context/Context'
 
 const MessageWindow = (props) => {
     
-    const { userData } = useContext(AppContext)
+    const context = useContext(AppContext)
     const [message, setMessage] = useState('')
     const sendMessage = () => {
         if(message.length===0) return
         const user = {
             message,
             timestamp: Date.now(),
-            name: userData.name,
+            name: context.userData.name,
         }
-        if(userData.image===null) {
+        if(context.userData.image===null) {
             user['image'] = 'https://firebasestorage.googleapis.com/v0/b/messaging-e2002.appspot.com/o/iconmonstr-user-20-240.png?alt=media&token=7a7fc2d2-252d-4fdc-8816-076f7b8de78d'
         } else {
-            user['image'] = userData.image
+            user['image'] = context.userData.image
         }
         sendMessageToDatabase(user)
     }
 
     const sendMessageToDatabase = (user) => {
-        db.collection(String(props.room.room))
+        db.collection(String(context.roomURL))
         .add(user)
         .then(()=> {
             (document.getElementById('message-textarea') as HTMLInputElement).value = ''
@@ -46,7 +46,7 @@ const MessageWindow = (props) => {
 
     return(
         <Container>
-            <Title>{props.pageName}</Title>
+            <Title>{context.pageName}</Title>
             <Messages {...props.room} />
             <TextContainer>
                 <Textbox id='message-textarea' onKeyDown={handleEnter} onKeyUp={handleChange} placeholder='Write a message...' />

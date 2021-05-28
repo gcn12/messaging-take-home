@@ -1,13 +1,19 @@
 import styled from 'styled-components'
 import Router from 'next/router'
+import { AppContext } from '../Context/Context'
+import { useContext } from 'react'
 
 const RecentRoomCard = (props: any) => {
+
+    const context = useContext(AppContext)
+
     const pageRoute = () => {
         Router.push(`/${props.card.url}`)
-        props.setPageName(props.card.title)
+        context.setPageName(props.card.title)
     }
+    
     return(
-        <Container url={props.room.room} href={props.card.url} onClick={pageRoute} >
+        <Container url={context.roomURL} href={props.card.url} onClick={pageRoute} >
             <Header>
                 <Title>{props.card.title}</Title>
             </Header>

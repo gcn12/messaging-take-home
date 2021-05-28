@@ -3,14 +3,17 @@ import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import { db } from '../../firebase'
+import { AppContext } from '../Context/Context'
+import { useContext } from 'react'
 
-const Messages = (props) => {
+const Messages = () => {
+    const context = useContext(AppContext)
 
     const [messages, setMessages] = useState([])
     const [isNoMessages, setIsNoMessages] = useState(false)
 
     const getMessages = () => {
-        return db.collection(String(props.room))
+        return db.collection(String(context.roomURL))
         .orderBy('timestamp', 'desc')
         .limit(25)
         .onSnapshot((items)=> {
@@ -30,11 +33,11 @@ const Messages = (props) => {
     }
 
     useEffect(()=> {
-        if(props.room) {
+        if(context.roomURL) {
             const unsubscribe = getMessages()
             return ()=> unsubscribe()
         }
-    }, [props])
+    }, [context.roomURL])
 
     return(
         <MessagesContainer>

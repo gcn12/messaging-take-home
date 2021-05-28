@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import { AppContext } from '../Context/Context'
+import { useContext } from 'react'
 
 const Member = (props) => {
+    const context = useContext(AppContext)
 
     const selectMember = () => {
-        props.setModalData(props)
-        props.setIsDialogOpen(true)
+        context.setUserModalData(props)
+        props.setIsModalOpen(true)
     }
 
     let shortenedBio: string

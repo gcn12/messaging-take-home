@@ -6,15 +6,14 @@ import { users } from '../../data'
 
 const Members = () => {
 
-    const [isDialogOpen, setIsDialogOpen] = useState(false)
-    const [modalData, setModalData] = useState({})
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     return(
         <Container>
-            <MemberModal modalData={modalData} isDialogOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
+            <MemberModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
             <Title>Members</Title>
             {users.map((user, index)=> {
-                return <Member setModalData={setModalData} setIsDialogOpen={setIsDialogOpen} {...user} key={index} />
+                return <Member setIsModalOpen={setIsModalOpen} {...user} key={index} />
             })}
         </Container>
     )

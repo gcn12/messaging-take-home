@@ -8,7 +8,7 @@ const FeaturedRooms = (props: any) => {
             <Title>Featured</Title>
             <Rooms>
                 {rooms.map((room, index)=> {
-                    return <LargeCard room={room} key={index} setPageName={props.setPageName} />
+                    return <LargeCard room={room} key={index} />
                 })}
             </Rooms>
         </Container>
