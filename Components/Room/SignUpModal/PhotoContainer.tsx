@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const PhotoContainer = (props) => {
+    const { left, opacity, visibility } = props.photoUploadSettings
     return(
-        <PhotoInputContainer photoUploadSettings={props.photoUploadSettings}>
+        <PhotoInputContainer left={left} opacity={opacity} visibility={visibility}>
             <Title htmlFor='username-input'>Select a profile image (optional)</Title>
             <PreviewImage isImage={props.isImage} id='preview-image' />
             <PhotoInput onChange={props.displayImage} id='photo-input' type='file' />
@@ -12,18 +13,24 @@ const PhotoContainer = (props) => {
 
 export default PhotoContainer
 
-const PhotoInputContainer = styled.div`
+interface PhotoInputContainerStyles {
+    left: number;
+    opacity: number;
+    visibility: string;
+}
+
+const PhotoInputContainer = styled.div<PhotoInputContainerStyles>`
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     transition: left 500ms ease-in-out, opacity 300ms ease-in-out, visibility 300ms ease-in-out;
-    left: ${props=>props.photoUploadSettings.left};
+    left: ${props=>props.left};
     top: 50%;
     transform: translate(-50%, -50%);
-    opacity: ${props=>props.photoUploadSettings.opacity};
-    visibility: ${props=>props.photoUploadSettings.visibility};
+    opacity: ${props=>props.opacity};
+    visibility: ${props=>props.visibility};
 `
 
 interface PreviewImageStyles {
