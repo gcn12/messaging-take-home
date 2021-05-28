@@ -7,7 +7,7 @@ import { AppContext } from '../Context/Context'
 import { useContext } from 'react'
 
 const Messages = () => {
-    const context = useContext(AppContext)
+    const context = useContext(AppContext) 
 
     const [messages, setMessages] = useState([])
     const [isNoMessages, setIsNoMessages] = useState(false)
