@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import ScrollItem from './ScrollItem'
 
-const ScrollGallery = (props) => {
+const ScrollGallery = (props: any) => {
     return(
         <Container>
             <Title>{props.title}</Title>
             <Cards>
-                {props.content.map((item, index)=> {
+                {props.content.map((item, index: number)=> {
                     return <ScrollItem setPageName={props.setPageName} item={item} key={index} />
                 })}
             </Cards>

@@ -26,7 +26,11 @@ const PhotoInputContainer = styled.div`
     visibility: ${props=>props.photoUploadSettings.visibility};
 `
 
-const PreviewImage = styled.img`
+interface PreviewImageStyles {
+    isImage: boolean;
+}
+
+const PreviewImage = styled.img<PreviewImageStyles>`
     height: 170px;
     width: 170px;
     border-radius: 50%;

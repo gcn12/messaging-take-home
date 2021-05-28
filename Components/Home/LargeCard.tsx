@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Router from 'next/router'
 
-const LargeCard = (props) => {
+const LargeCard = (props: any) => {
 
     const pageRoute = () => {
         Router.push(`/${props.room.url}`)
@@ -18,7 +18,7 @@ const LargeCard = (props) => {
                 </div>
                 <UserImages>
                     {props.room.images.map((image: string, index: number)=> {
-                        return <UserImage index={index} fontColor={props.room.fontColor} key={index} src={image} />
+                        return <UserImage index={index} key={index} src={image} />
                     })}
                     <MoreUsers length={props.room.images.length}>{props.room.more}</MoreUsers>
                 </UserImages>
@@ -52,7 +52,11 @@ const Header = styled.div`
     min-height: 200px;
 `
 
-const Title = styled.h1`
+interface TitleStyles {
+    fontColor: string;
+}
+
+const Title = styled.h1<TitleStyles>`
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -67,7 +71,10 @@ const UserImages = styled.div`
     align-items: center;
 `
 
-const MoreUsers = styled.h4`
+interface MoreUsersStyles {
+    length: number;
+}
+const MoreUsers = styled.h4<MoreUsersStyles>`
     font-size: 14px;
     background-color: #51707b;
     border: 3px solid #75a1b1;
@@ -83,7 +90,11 @@ const MoreUsers = styled.h4`
     left: ${props=>props.length * -20}px;
 `
 
-const UserImage = styled.img`
+interface UserImageStyles {
+    index: number;
+}
+
+const UserImage = styled.img<UserImageStyles>`
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -93,8 +104,10 @@ const UserImage = styled.img`
     position: relative;
     left: ${props=>props.index * -20}px;
 `
-
-const Description = styled.p`
+interface DescriptionStyles {
+    fontColor: string;
+}
+const Description = styled.p<DescriptionStyles>`
     color: ${props=>props.fontColor};
     color: #323131;
     font-size: 20px;

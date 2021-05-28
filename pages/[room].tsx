@@ -5,16 +5,18 @@ import MessageWindow from '../Components/Room/MessageWindow'
 import Members from '../Components/Room/Members'
 import SignUpModal from '../Components/Room/SignUpModal/SignUpModal'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import AppContext from '../userContext'
 
 const Room = (props) => {
+    const { userData } = useContext(AppContext)
     const [showSignUp, setShowSignUp] = useState(false)
 
     const route = useRouter()
     const room = route.query
 
     useEffect(()=> {
-        if(props?.userData?.userName?.length < 1) {
+        if(userData?.userName?.length < 1) {
             setShowSignUp(true)
         }
     }, [])

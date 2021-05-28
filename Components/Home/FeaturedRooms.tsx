@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import LargeCard from './LargeCard'
 import { rooms } from '../../data'
 
-const FeaturedRooms = (props) => {
+const FeaturedRooms = (props: any) => {
     return(
         <Container>
             <Title>Featured</Title>

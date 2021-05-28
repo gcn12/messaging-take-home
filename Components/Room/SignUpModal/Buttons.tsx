@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Buttons = (props) => {
+const Buttons = (props: any) => {
     return(
         <>
         {props.step=== 'select username' && 

@@ -23,6 +23,7 @@ const SignUpModal = (props) => {
 
     const handlePhotoUpload = () => {
         const files = (document.getElementById('photo-input') as HTMLInputElement).files
+        console.log(files)
         if(files.length===1) {
             uploadPhoto(files)
         }else {
@@ -137,7 +138,11 @@ const Overlay = styled(DialogOverlay)`
     justify-content: center;
 `
 
-const Loading = styled.h2`
+interface LoadingStyles {
+    step: string;
+}
+
+const Loading = styled.h2<LoadingStyles>`
     white-space: nowrap;
     font-size: 24px;
     position: absolute;

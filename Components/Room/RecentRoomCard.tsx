@@ -18,7 +18,12 @@ const RecentRoomCard = (props: any) => {
 
 export default RecentRoomCard
 
-const Container = styled.button`
+interface LoadingStyles {
+    url: string;
+    href: string;
+}
+
+const Container = styled.button<LoadingStyles>`
     width: 100%;
     display: block;
     min-height: 100px;

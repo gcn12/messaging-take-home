@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Router from 'next/router'
 
-const ScrollItem = (props) => {
+const ScrollItem = (props: any) => {
 
     const pageRoute = () => {
         Router.push(`/${props.item.url}`)
@@ -11,7 +11,7 @@ const ScrollItem = (props) => {
     const members = Math.round(Math.random()*100) + 5
 
     return(
-        <Container colorOne={props.item.colorOne} colorTwo={props.item.colorTwo} color={props.item.color} onClick={pageRoute}>
+        <Container color={props.item.color} onClick={pageRoute}>
             <Image src={props.item.image} />
             <div>
                 <Title fontColor={props.item.fontColor}>{props.item.name}</Title>
@@ -32,7 +32,11 @@ const Image = styled.img`
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 `
 
-const Title = styled.h1`
+interface TitleStyles {
+    fontColor: string;
+}
+
+const Title = styled.h1<TitleStyles>`
     color: ${props=>props.fontColor};
     font-size: 30px;
     margin-bottom: 5px;
@@ -40,7 +44,10 @@ const Title = styled.h1`
     font-family: 'Nunito', sans-serif;
 `
 
-const Description = styled.h1`
+interface DescriptionStyles {
+    fontColor: string;
+}
+const Description = styled.h1<DescriptionStyles>`
     color: ${props=>props.fontColor};
     font-size: 18px;
     font-weight: 400;

@@ -19,7 +19,7 @@ const Member = (props) => {
     }
 
     return(
-        <Container isActive={props.isActive}>
+        <Container>
             <button onClick={selectMember}>
                 <UserImage src={props.image} />
             </button>

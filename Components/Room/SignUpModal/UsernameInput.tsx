@@ -11,7 +11,11 @@ const UsernameInput = (props) => {
 
 export default UsernameInput
 
-const Container = styled.div`
+interface ContainerStyles {
+    step: string;
+}
+
+const Container = styled.div<ContainerStyles>`
     display: flex;
     flex-direction: column;
     align-items: center;
