@@ -3,7 +3,7 @@ import Router from 'next/router'
 import { AppContext } from '../Context/Context'
 import { useContext } from 'react'
 
-const LargeCard = (props: any) => {
+const FeaturedCard = (props: any) => {
 
     const { room } = props
     const context = useContext(AppContext)
@@ -32,7 +32,7 @@ const LargeCard = (props: any) => {
     )
 }
 
-export default LargeCard
+export default FeaturedCard
 
 const Container = styled.a`
     background-image: linear-gradient(to bottom left, #ecfff1, #ffffff);

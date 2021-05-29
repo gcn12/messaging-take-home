@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import LargeCard from './LargeCard'
+import LargeCard from './FeaturedCard'
 import { rooms } from '../../data'
 
 const FeaturedRooms = (props: any) => {
