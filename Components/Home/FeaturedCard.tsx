@@ -1,16 +1,12 @@
 import styled from 'styled-components'
 import Router from 'next/router'
-import { AppContext } from '../Context/Context'
-import { useContext } from 'react'
 
 const FeaturedCard = (props: any) => {
 
     const { room } = props
-    const context = useContext(AppContext)
 
     const pageRoute = () => {
         Router.push(`/${room.url}`)
-        context.setPageName(room.name)
     }
 
     return(

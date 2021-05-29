@@ -1,3 +1,38 @@
+export const routes = {
+  'car-club': 'Car Club',
+  'movie-club': 'Movie Club',
+  'writing': 'Writing',
+  'sports-talk': 'Sports Talk',
+  'hitman-3': 'Hitman 3',
+  'far-cry-6': 'Far Cry 6',
+  'returnal': 'Returnal',
+  'stray': 'Stray',
+  'palmer': 'Palmer',
+  'cooking-chat': 'Cooking Chat',
+  'car-club': 'Car Club',
+  'architecture-group': 'Architecture Group',
+  'travel': 'Travel',
+  'asu-football': 'ASU Football',
+  'hockey': 'Hockey',
+  'rugby-chat': 'Rugby Chat',
+  'baseball-tributes': 'Baseball Tributes',
+  'miami-soccer': 'Miami Soccer',
+  'we-swim': 'We Swim',
+  'the-upside': 'The Upside',
+  'the-revenant': 'The Revenant',
+  'side-effects': 'Side Effects',
+  'gravity': 'Gravity',
+  'romeo-and-juliet': 'Romeo and Juliet',
+  'okja': 'Okja',
+  'the-descendants': 'The Descendants',
+  'cornell': 'Cornell',
+  'notre-dame': 'Notre Dame',
+  'emory': 'Emory',
+  'wake-forest': 'Wake Forest',
+  'kings-college': 'King\'s College',
+}
+
+
 export const users = [
   {
     name: 'Daniel Parker',

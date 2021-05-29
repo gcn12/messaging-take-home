@@ -9,7 +9,6 @@ const RecentRoomCard = (props: any) => {
 
     const pageRoute = () => {
         Router.push(`/${props.card.url}`)
-        context.setPageName(props.card.title)
     }
     
     return(

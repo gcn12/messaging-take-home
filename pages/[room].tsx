@@ -7,6 +7,8 @@ import SignUpModal from '../Components/Room/SignUpModal/SignUpModal'
 import { useRouter } from 'next/router'
 import { useEffect, useState, useContext } from 'react'
 import { AppContext } from '../Components/Context/Context'
+import { routes } from '../data'
+import Head from 'next/head'
 
 const Room = () => {
     const context = useContext(AppContext)
@@ -15,8 +17,9 @@ const Room = () => {
     const route = useRouter()
     const room = route.query
     useEffect(()=> {
+        context.setPageName(routes[room.room])
         context.setRoomURL(room.room)
-    }, [room])
+    }, [route])
 
     useEffect(()=> {
         if(context?.userData?.userName?.length < 1) {
@@ -26,6 +29,9 @@ const Room = () => {
 
     return(
         <Container>
+            <Head>
+                <title>{context.pageName}</title>
+            </Head>
             <SignUpModal showSignUp={showSignUp} setShowSignUp={setShowSignUp} />
             <Header />
             <ComponentsContainer>

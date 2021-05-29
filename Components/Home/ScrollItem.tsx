@@ -1,15 +1,10 @@
 import styled from 'styled-components'
 import Router from 'next/router'
-import { AppContext } from '../Context/Context'
-import { useContext } from 'react'
 
 const ScrollItem = (props: any) => {
 
-    const context = useContext(AppContext)
-
     const pageRoute = () => {
         Router.push(`/${props.item.url}`)
-        context.setPageName(props.item.name)
     }
 
     const members = Math.round(Math.random()*100) + 5

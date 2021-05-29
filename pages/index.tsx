@@ -3,10 +3,14 @@ import Header from '../Components/Home/Header'
 import { sports, movies, schools, } from '../data'
 import ScrollGallery from '../Components/Home/ScrollGallery'
 import FeaturedRooms from '../Components/Home/FeaturedRooms'
+import Head from 'next/head'
 
-export default function Home(props) {
+export default function Home() {
   return (
     <Container>
+      <Head>
+        <title>Carrier</title>
+      </Head>
       <Header />
       <FeaturedRooms />
       <ScrollGallery content={sports} title='Sports' />
