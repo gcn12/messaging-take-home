@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-import { useState } from 'react'
 import GlobalStyles from '../Components/GlobalStyles'
 import Context from '../Components/Context/Context'
 import styled from 'styled-components'

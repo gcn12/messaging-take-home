@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import LargeCard from './FeaturedCard'
+import FeaturedCard from './FeaturedCard'
 import { rooms } from '../../data'
 
 const FeaturedRooms = (props: any) => {
@@ -8,7 +8,7 @@ const FeaturedRooms = (props: any) => {
             <Title>Featured</Title>
             <Rooms>
                 {rooms.map((room, index)=> {
-                    return <LargeCard room={room} key={index} />
+                    return <FeaturedCard room={room} key={index} />
                 })}
             </Rooms>
         </Container>

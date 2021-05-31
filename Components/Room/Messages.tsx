@@ -48,8 +48,8 @@ const Messages = () => {
                             <Day><Line>{moment(messages[index].timestamp).format('MMM Do YYYY')}</Line></Day>
                         }
                         <Message {...message} key={index} />
-                        {messages[index +1] && moment(messages[index].timestamp).format('dddd') !== moment(messages[index +1]?.timestamp).format('dddd') &&
-                            <Day><Line>{moment(messages[index + 1]?.timestamp).format('MMM Do YYYY')}</Line></Day>
+                        {messages[index +1] && moment(messages[index].timestamp).format('MMM Do YYYY') !== moment(messages[index +1].timestamp).format('MMM Do YYYY') &&
+                            <Day><Line>{moment(messages[index + 1].timestamp).format('MMM Do YYYY')}</Line></Day>
                         }
                     </div>
                 )
